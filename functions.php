@@ -321,3 +321,15 @@ require get_template_directory() . '/inc/class-ipt-kb-popular-widget.php';
 if ( function_exists( 'bbpress' ) ) {
 	require get_template_directory() . '/inc/bbpress.php';
 }
+
+// Allow subscribers to see Private posts and pages
+
+ $subRole = get_role( 'subscriber' ); 
+ $subRole->add_cap( 'read_private_posts' );
+ $subRole->add_cap( 'read_private_pages' );
+
+// Allow contributors to see Private posts and pages
+
+ $subRole = get_role( 'contributor' ); 
+ $subRole->add_cap( 'read_private_posts' );
+ $subRole->add_cap( 'read_private_pages' );
